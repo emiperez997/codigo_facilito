@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Contenedor de nuestra app Vue -->
+    <!-- Dentro de este div podré utilizar sentencias de Vue -->
+    <div id="app">
+      <!-- {{ name }} -->
+      <!-- One way binding -->
+      <!-- Two way binding → Sincronización entre la entrada, con la propiedad y a su vez con el DOM -->
+
+      <!-- v-model → Two way binding -->
+      <!-- <input type="text" v-model="name" /> -->
+
+      <!-- v-bind -->
+      <!-- v-bind:title → span tiene una propiedad llamada title y hace referencia a eso -->
+      <!-- <span v-bind:title="title">{{ name }} </span> -->
+
+      <!-- v-text → Definir un texto dentro de un elemento -->
+      <!-- <h2 v-text="name"></h2> -->
+
+      <!-- v-for → Iteración -->
+      <!-- <p v-for="item in numbers" v-text="item"></p> -->
+
+      <!-- Cuando es un array de objetos, se puede referenciar a una propiedad -->
+      <!-- <p v-for="persona in personas" v-text="persona.nombre"></p> -->
+      <!-- <p v-for="(value, key) in usuario" v-text="key"></p> -->
+
+      <!-- v-if -->
+      <!-- <h2 v-if="flag" v-text="name"></h2> 
+      <h2 v-else>Hola Mundo else</h2> -->
+
+      <!-- template -->
+      <!-- <template v-if="flag"> {{ name }} </template>
+      <template v-else>
+        <h2>Hola Mundo else</h2>
+      </template> -->
+
+      <!-- v-show -->
+      <!-- <h2 v-show="flag" @copy="alerta">Hola Mundo show</h2> -->
+
+      <!-- Eventos -->
+      <!-- <button @click="flag = !flag">Change</button> -->
+      <!-- <button @click="changeFlag">Change</button> -->
+
+      <p v-if="errors.length > 0" class="bg-red-500">
+        <template v-for="error in errors"> {{ error }} </template>
+      </p>
+      <div :class="{ 'bg-red-500': flagCss }" class="bg-blue">
+        <form @submit.prevent="submit">
+          <!-- <p v-if="errors.length > 0" class="bg-red-500"> -->
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username"
+            type="text"
+            placeholder="Username"
+            v-model="form.name"
+          />
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            v-model="form.text"
+          ></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // Componente
+      const Hola = {
+        data() {
+          return {
+            // Propiedad
+            name: "Hola Mundo",
+            title: "Input de prueba",
+            numbers: [1, 2, 3, 4, 5],
+            personas: [
+              { nombre: "Juan", edad: 20 },
+              { nombre: "Pedro", edad: 30 },
+              { nombre: "Maria", edad: 40 },
+            ],
+            usuario: {
+              nombre: "Juan",
+              edad: 20,
+            },
+            flag: true,
+          };
+        },
+
+        methods: {
+          changeFlag() {
+            // this → Hace referencia a la instancia de Vue
+            this.flag = !this.flag;
+          },
+          alerta() {
+            alert("Copiado");
+          },
+        },
+
+        beforeUpdate() {
+          // Antes de que se actualice la instancia
+          console.log("Before Update");
+        },
+
+        updated() {
+          // Una vez se actualiza la instancia
+          console.log("Updated");
+        },
+
+        beforeCreate() {
+          // Antes de que se cree la instancia
+          console.log("Before");
+        },
+
+        created() {
+          // Una vez se crea la instancia
+          console.log("Hola Mundo");
+        },
+      };
+
+      const HolaForm = {
+        data() {
+          return {
+            form: {
+              name: "",
+              text: "",
+            },
+            flagCss: false,
+            errors: [],
+          };
+        },
+
+        methods: {
+          submit() {
+            this.errors = [];
+
+            if (this.form.name == "") {
+              this.errors.push("El nombre es requerido");
+              flagCss = true;
+            } else {
+              flagCss = false;
+            }
+            console.log(this.form);
+          },
+        },
+      };
+
+      // Binding → Vinculación del DOM con Vue
+      // Vue.createApp(Hola).mount("#app");
+      Vue.createApp(HolaForm).mount("#app");
+    </script>
+  </body>
+</html>

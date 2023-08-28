@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <!-- <p>{{ cGetRandom }}</p>
+      <p>{{ cGetRandom }}</p>
+      <p>{{ cGetRandom }}</p> -->
+
+      {{ name }}
+      <input type="text" v-model="name" />
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const Hola = {
+        data() {
+          return {
+            name: "",
+          };
+        },
+        methods: {
+          mGetRandom() {
+            return Math.random();
+          },
+        },
+        computed: {
+          cGetRandom() {
+            return Math.random();
+          },
+        },
+
+        watch: {
+          name(newVal, oldVal) {
+            console.log(newVal, oldVal);
+          },
+        },
+      };
+
+      Vue.createApp(Hola).mount("#app");
+    </script>
+  </body>
+</html>
