@@ -3,6 +3,7 @@ package SECCION_4;
 public class MetodosString {
 
   public static void main(String[] args) {
+
     // Métodos → Funciones que tiene la clase String
     String mensaje = "Hola, soy un String";
 
@@ -21,5 +22,6 @@ public class MetodosString {
     System.out.println(comienzaCon);
     System.out.println(terminaCon);
     System.out.println(nuevoStrings);
+
   }
 }

@@ -3,7 +3,7 @@
 - [ x ] Sección 1: Introducción
 - [ x ] Sección 2: Tipos de datos
 - [ x ] Sección 3: Operadores
-- [ ] Sección 4: Strings
+- [ x ] Sección 4: Strings
 - [ ] Sección 5: Ciclos y condicionales
 - [ ] Sección 6: Arreglos
 - [ ] Sección 7: Clases y objetos
