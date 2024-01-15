@@ -6,6 +6,6 @@
 - [ x ] Sección 2: cURL
 - [ x ] Sección 3: Python
 - [ x ] Sección 4: Anotaciones
-- [] Sección 5: Desarrollo API
-- [] Sección 6: Cliente
-- [] Sección 7: Autenticación OAuth2
+- [ x ] Sección 5: Desarrollo API
+- [ x ] Sección 6: Cliente
+- [ x ] Sección 7: Autenticación OAuth2
